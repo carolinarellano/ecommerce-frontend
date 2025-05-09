@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <h1 class="mb-4">Mis Pedidos</h1>
+
+  <% if (orders.length > 0) { %>
+    <% orders.forEach(order => { %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Pedido #<%= order.id %></h5>
+          <p class="card-text"><strong>Total:</strong> $<%= order.total %></p>
+          <p class="card-text"><strong>Fecha:</strong> <%= order.created_at.toDateString() %></p>
+          <p class="card-text"><strong>Estado:</strong> <%= order.status %></p>
+        </div>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <p>No tienes pedidos registrados.</p>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>
